@@ -203,7 +203,9 @@ function callSendAPI(messageData) {
   });  
 }
 
+var ipaddress = process.env.OPENSHIFT_NODEJS_IP || "127.0.0.1";
+var port = process.env.OPENSHIFT_NODEJS_PORT || 8080;
 // Set Express to listen out for HTTP requests
-var server = app.listen(process.env.PORT || 3000, function () {
+var server = app.listen(port, ipaddress, function () {
   console.log("Listening on port %s", server.address().port);
 });
